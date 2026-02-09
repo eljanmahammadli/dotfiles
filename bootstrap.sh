@@ -11,7 +11,7 @@ sudo apt install -y git tmux curl
 
 log "Linking tmux config"
 mkdir -p "$REPO_DIR"
-ln -sf "$REPO_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$REPO_DIR/tmux/linux.tmux.conf" "$HOME/.tmux.conf"
 
 log "Installing tmux plugin manager (TPM)"
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
