@@ -7,7 +7,7 @@ log() { printf "\n==> %s\n" "$1"; }
 
 log "Installing base packages"
 sudo apt update
-sudo apt install -y git tmux curl
+sudo apt install -y git tmux curl ncurses-term
 
 log "Linking tmux config"
 mkdir -p "$REPO_DIR"
@@ -18,16 +18,5 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
-log "Enabling auto-tmux on SSH"
-if ! grep -q "Auto-start tmux on SSH (dotfiles)" "$HOME/.bashrc"; then
-  cat <<'EOF' >> "$HOME/.bashrc"
-
-# Auto-start tmux on SSH (dotfiles)
-if [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
-  tmux attach -t main || tmux new -s main
-fi
-EOF
-fi
-
-log "Done. Reconnect SSH to activate tmux."
+log "Done."
 
