@@ -26,7 +26,4 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
-log "Installing tmux plugins"
-~/.tmux/plugins/tpm/bin/install_plugins
-
-log "Done. Start tmux with: tmux"
+log "Done. Run: tmux (plugins install automatically on first launch via prefix + I)"
