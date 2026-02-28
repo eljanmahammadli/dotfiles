@@ -11,9 +11,10 @@ sudo apt update
 sudo apt install -y git tmux curl ncurses-term
 
 log "Cloning dotfiles"
-if [ -d "$REPO_DIR" ]; then
+if [ -d "$REPO_DIR/.git" ]; then
   git -C "$REPO_DIR" pull --ff-only
 else
+  rm -rf "$REPO_DIR"
   git clone "$REPO_URL" "$REPO_DIR"
 fi
 
